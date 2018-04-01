@@ -1,0 +1,50 @@
+{
+  "name": "thumb-worker",
+  "version": "1.0.0",
+  "description": "Thumb Worker is for all schedule thumb jobs\"",
+  "main": "src/worker.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test npm run checkcoverage mocha --exit",
+    "test:watch": "npm run test -- --watch",
+    "checkcoverage": "nyc --check-coverage --lines 80 --functions 80 --branches 75 --reporter=text",
+    "dev": "cross-env NODE_ENV=dev node src/worker.js",
+    "start": "cross-env NODE_ENV=prod node src/worker.js",
+    "lint": "esw src buildScripts test --color",
+    "lint:watch": "npm run lint -- --watch",
+    "security-check": "nsp check",
+    "build": "npm-run-all --parallel security-check lint"
+  },
+  "author": "Josh Romine",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
+    "agenda": "^1.0.3",
+    "nodemailer": "^4.6.3",
+    "nodemailer-sendgrid-transport": "^0.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chalk": "^2.3.2",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-watch": "^3.1.4",
+    "mocha": "^5.0.5",
+    "mockery": "^2.1.0",
+    "nodemailer-mock": "^1.3.13",
+    "npm-run-all": "^4.1.2",
+    "nsp": "^3.2.1",
+    "nyc": "^11.6.0",
+    "sinon-chai": "^3.0.0"
+  },
+  "nyc": {
+    "exclude": [
+      "src/config.js",
+      "src/utilities/",
+      "test/",
+      "src/worker.js",
+      "src/scheduler.js"
+    ]
+  }
+}
