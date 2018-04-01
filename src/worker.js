@@ -30,9 +30,6 @@ async function run() {
     // should happen in the `await MongoClient.connect()` call.
     await new Promise(resolve => agenda.once('ready', resolve));
 
-    let s = await scheduler.getScheduler();
-    s.schedule(new Date().getDate(), JobTypes.WELCOME_EMAIL, {'emailAddress': 'jromines@gmail.com', 'firstName': 'Josh'});
-
     // `start()` is how you tell agenda to start processing jobs.
     agenda.start();
 }
