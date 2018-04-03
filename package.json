@@ -2,7 +2,7 @@
   "name": "thumb-worker",
   "version": "1.0.0",
   "description": "Thumb Worker is for all schedule thumb jobs\"",
-  "main": "src/worker.js",
+  "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test npm run checkcoverage mocha --exit",
     "test:watch": "npm run test -- --watch",
