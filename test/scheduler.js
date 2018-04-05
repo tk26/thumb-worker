@@ -31,7 +31,7 @@ describe('Scheduler', () => {
       return promise.should.be.rejectedWith(exceptions.UNREGISTERED_JOB);
     });
 
-    it('it should successfully schedule job now when provided valid job type', async() => {
+    it('it should successfully schedule job at specified date when provided date and valid job type', async() => {
       let scheduledTime = new Date().getDate();
       try {
         let job = await scheduler.scheduleJob(scheduledTime, jobTypes.WELCOME_EMAIL, welcomeEmailData);
