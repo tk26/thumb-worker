@@ -4,7 +4,7 @@
   "description": "Thumb Worker is for all schedule thumb jobs\"",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test npm run checkcoverage mocha --exit",
+    "test": "cross-env NODE_ENV=test mocha --exit",
     "test:watch": "npm run test -- --watch",
     "checkcoverage": "nyc --check-coverage --lines 80 --functions 80 --branches 75 --reporter=text",
     "start-dev": "cross-env NODE_ENV=dev node src/worker.js",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "chalk": "^2.3.2",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
@@ -37,6 +38,7 @@
     "npm-run-all": "^4.1.2",
     "nsp": "^3.2.1",
     "nyc": "^11.6.0",
+    "sinon": "^4.5.0",
     "sinon-chai": "^3.0.0"
   },
   "nyc": {
@@ -44,8 +46,7 @@
       "src/config.js",
       "src/utilities/",
       "test/",
-      "src/worker.js",
-      "src/scheduler.js"
+      "src/worker.js"
     ]
   }
 }

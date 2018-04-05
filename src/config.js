@@ -33,5 +33,4 @@ function config(){
   }
 }
 
-// Export for use in init_api
 module.exports = config()

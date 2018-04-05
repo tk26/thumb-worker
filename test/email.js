@@ -39,10 +39,16 @@ describe('Email-Jobs', () => {
           }
         }
       };
-      await emailJobs.welcomeEmail(job);
-      const sentMail = nodemailerMock.mock.sentMail();
-      sentMail.length.should.equal(1);
-      let emailContent = sentMail[0];
+      let emailContent;
+      let sentMail;
+      try {
+        await emailJobs.welcomeEmail(job);
+        sentMail = nodemailerMock.mock.sentMail();
+        emailContent = sentMail[0];
+      }
+      catch(err){
+        throw err;
+      }
       emailContent.to.should.equal(welcomeEmailAddress);
       emailContent.from.should.equal('welcome@thumbtravel.com');
       emailContent.subject.should.equal('Welcome to thumb ' + firstName + '!');
