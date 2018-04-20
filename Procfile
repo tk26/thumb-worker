@@ -1,1 +1,1 @@
-worker: node src/worker.js
+worker: NODE_ENV=prod node src/worker.js
