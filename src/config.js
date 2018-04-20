@@ -24,7 +24,7 @@ function config(){
           return {
               'SENDGRID_API_KEY': process.env.SENDGRID_API_KEY,
               'DATABASE': 'mongodb://'+DB_USER+':'+DB_PASSWORD+'@ds151207.mlab.com:51207/thumb',
-              'WORKER_DATABASE': 'mongodb://'+DB_USER+':'+DB_PASSWORD+'@ds151207.mlab.com:51207/worker',
+              'WORKER_DATABASE': 'mongodb://'+DB_USER+':'+DB_PASSWORD+'@ds231245.mlab.com:31245/thumb-worker',
               'JOBS_TABLE': 'jobs'
             };
 
