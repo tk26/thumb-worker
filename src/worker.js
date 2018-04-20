@@ -6,6 +6,7 @@ const config = require('./config.js');
 const scheduler = require('./scheduler.js');
 
 async function run() {
+    console.log('Starting worker...');
     const db = await MongoClient.connect(config.WORKER_DATABASE);
     const agenda = new Agenda().mongo(db, config.JOBS_TABLE);
 
