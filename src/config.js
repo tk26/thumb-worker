@@ -1,12 +1,15 @@
 function config(){
-  const APP_NAME = 'Thumb Worker';
+  const APP_NAME = 'Worker';
   switch(process.env.NODE_ENV){
       case 'dev':
           return {
             'ETHEREAL_CREDENTIALS': {'user': 'qfc6epmx43mulopu@ethereal.email', 'password': 'Tn99WBwt2UahFxvSs1'},
             'DATABASE': 'mongodb://localhost/thumb',
             'WORKER_DATABASE': 'mongodb://localhost/worker',
-            'JOBS_TABLE': 'jobs'
+            'LOGGER_DATABASE': 'mongodb://localhost/worker',
+            'JOBS_TABLE': 'jobs',
+            'LOG_LEVEL': 'info',
+            'APP_NAME': APP_NAME
           };
 
       case 'test':
@@ -14,7 +17,10 @@ function config(){
             'ETHEREAL_CREDENTIALS': {'user': 'qfc6epmx43mulopu@ethereal.email', 'password': 'Tn99WBwt2UahFxvSs1'},
             'DATABASE': 'mongodb://localhost/thumb_test',
             'WORKER_DATABASE': 'mongodb://localhost/worker_test',
-            'JOBS_TABLE': 'jobs'
+            'LOGGER_DATABASE': 'mongodb://localhost/worker_test',
+            'JOBS_TABLE': 'jobs',
+            'LOG_LEVEL': 'info',
+            'APP_NAME': APP_NAME
           };
 
       case 'prod':
@@ -25,7 +31,9 @@ function config(){
               'SENDGRID_API_KEY': process.env.SENDGRID_API_KEY,
               'DATABASE': 'mongodb://'+DB_USER+':'+DB_PASSWORD+'@ds151207.mlab.com:51207/thumb',
               'WORKER_DATABASE': 'mongodb://'+DB_USER+':'+DB_PASSWORD+'@ds231245.mlab.com:31245/thumb-worker',
-              'JOBS_TABLE': 'jobs'
+              'JOBS_TABLE': 'jobs',
+              'LOG_LEVEL': 'info',
+              'APP_NAME': APP_NAME
             };
 
       default:

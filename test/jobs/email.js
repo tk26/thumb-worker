@@ -1,5 +1,5 @@
 let chai = require('chai').should();
-const jobTypes = require('../src/jobs/jobtypes.js');
+const jobTypes = require('../../src/jobs/jobtypes.js');
 
 const mockery = require('mockery');
 const nodemailerMock = require('nodemailer-mock');
@@ -12,7 +12,7 @@ describe('Email-Jobs', () => {
       warnOnUnregistered: false,
     });
     mockery.registerMock('nodemailer', nodemailerMock);
-    emailJobs = require('../src/jobs/email.js');
+    emailJobs = require('../../src/jobs/email.js');
   });
 
   afterEach(function() {

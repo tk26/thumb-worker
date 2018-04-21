@@ -21,7 +21,8 @@
     "@sendgrid/mail": "^6.2.1",
     "agenda": "^1.0.3",
     "nodemailer": "^4.6.3",
-    "nodemailer-sendgrid-transport": "^0.2.0"
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "thumb-logger": "git+ssh://git@github.com/tk26/thumb-logger.git#master"
   },
   "devDependencies": {
     "chai": "^4.1.2",

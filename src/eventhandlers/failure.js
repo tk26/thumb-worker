@@ -1,3 +1,9 @@
+const config = require('../config.js');
+const logger = require('thumb-logger').getLogger('WorkerLog');
+
 exports.onFailure = function(err, job){
-    console.log('Job failed with error: %s', err.message); 
+  const jobName = job.attrs.name;
+  const jobId = job.attrs._id.toString();
+  const errorMessage = 'JobId: ' + jobId + ' with jobName: ' + jobName + ' failed: ' + err;
+  logger.error(errorMessage);
 }
