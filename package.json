@@ -22,7 +22,7 @@
     "agenda": "^1.0.3",
     "nodemailer": "^4.6.3",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "thumb-logger": "git+ssh://git@github.com/tk26/thumb-logger.git#master"
+    "thumb-logger": "git+https://jdromine:6af3f3b09e490af5b770edf44e21faf997f4738a@github.com/tk26/thumb-logger.git#master"
   },
   "devDependencies": {
     "chai": "^4.1.2",
