@@ -17,8 +17,8 @@ describe('Scheduler', () => {
 
     it('it should successfully schedule job now when provided valid job type', async() => {
       try{
-        let job = await scheduler.scheduleJobNow(jobTypes.WELCOME_EMAIL, welcomeEmailData);
-        job.attrs.name.should.equal(jobTypes.WELCOME_EMAIL);
+        let job = await scheduler.scheduleJobNow(jobTypes.EMAIL_MESSAGE_PROCESSOR, welcomeEmailData);
+        job.attrs.name.should.equal(jobTypes.EMAIL_MESSAGE_PROCESSOR);
       } catch (error){
         throw error;
       }
@@ -34,8 +34,8 @@ describe('Scheduler', () => {
     it('it should successfully schedule job at specified date when provided date and valid job type', async() => {
       let scheduledTime = new Date().getDate();
       try {
-        let job = await scheduler.scheduleJob(scheduledTime, jobTypes.WELCOME_EMAIL, welcomeEmailData);
-        job.attrs.name.should.equal(jobTypes.WELCOME_EMAIL);
+        let job = await scheduler.scheduleJob(scheduledTime, jobTypes.EMAIL_MESSAGE_PROCESSOR, welcomeEmailData);
+        job.attrs.name.should.equal(jobTypes.EMAIL_MESSAGE_PROCESSOR);
       } catch (error){
         throw error;
       }
