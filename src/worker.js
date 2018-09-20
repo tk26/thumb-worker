@@ -11,8 +11,12 @@ async function run() {
     const db = await MongoClient.connect(config.WORKER_DATABASE);
     const agenda = new Agenda().mongo(db, config.JOBS_TABLE);
 
+    //Configure jobs
+    JobConfiguration.defineJobs(agenda);
+    JobConfiguration.setEvents(agenda);
     //process jobs every second
-    agenda.processEvery(1000);
+    agenda.every('1 minutes', JobTypes.EMAIL_MESSAGE_PROCESSOR);
+    agenda.every('1 minutes', JobTypes.PUSH_NOTIFICATION_PROCESSOR);
 
     //ensure process shuts down gracefully
     function graceful() {
@@ -24,10 +28,6 @@ async function run() {
     process.on('SIGTERM', graceful);
     process.on('SIGINT' , graceful);
 
-    //Configure jobs
-    JobConfiguration.defineJobs(agenda);
-    JobConfiguration.setEvents(agenda);
-    JobConfiguration.scheduleRecurringJobs(agenda);
 
     // Wait for agenda to connect. Should never fail since connection failures
     // should happen in the `await MongoClient.connect()` call.
